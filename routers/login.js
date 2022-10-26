@@ -4,8 +4,8 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
    try {
-    const {username, password} = req.body;
-    const user = await User.findOne({username})
+    const {user_id, password} = req.body;
+    const user = await User.findOne({user_id})
     if(!user || user.password !==password){
         return res.json({
             ok: false,
