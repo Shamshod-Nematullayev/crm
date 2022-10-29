@@ -5,10 +5,6 @@ const schema = mongoose.Schema({
         type: String,
         required: true
     },
-    username: {
-        type: String,
-        required: true
-    },
     password: {
         type: String,
         min: 8,

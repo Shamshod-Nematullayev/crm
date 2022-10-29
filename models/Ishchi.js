@@ -22,8 +22,7 @@ const schema = mongoose.Schema({
         required: true
     },
     telefon2: {
-        type: String,
-        required: true
+        type: String
     },
     email: String,
     address: Object,
@@ -36,14 +35,16 @@ const schema = mongoose.Schema({
             linkedin: "",
         }
     },
-    qonGuruhi: String,
     rasmi: String,
-    tavalludi: Date,
-    diplomSertifikatlar: Array,
+    tavalludi: {
+        type: Date,
+        required: true
+    },
+    malumoti: String,
     isActiv: {
         type: Boolean,
         default: false
-    },
+    },  
     actived: Date,
     kelishilganMaosh: Number,
     talabQilinganMaosh: Number,
@@ -51,9 +52,25 @@ const schema = mongoose.Schema({
         type: String,
         max: 250
     },
+    bonus: {
+        type: Array,
+        default: []
+    },
+    jarima: {
+        type: Array,
+        default: []
+    },
+    holidays: {
+        type: Array,
+        default: []
+    },
     vakansiya_id: String,
     job: String,
-    joined: Date
+    joined: Date,
+    filialCode: {
+        type: Number,
+        required: true
+    }
 })
 
 const Ishchi = mongoose.model('Ishchi', schema);
