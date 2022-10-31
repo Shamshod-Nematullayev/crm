@@ -1,17 +1,28 @@
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
-    kurs_id: String,
-    nomi: String,
-    narxi: Number,
+    nomi: {
+        type: String,
+        required: true
+    },
+    narxi: {
+        type: Number,
+        required: true
+    },
     comment: {
         type: String,
         min: 300
     },
-    teacher_user_id: String,
+    teacher_user_id: {
+        type: String,
+        required: true
+    },
     davomiyligi: Number,
     boshlanishSanasi: Date,
-    students: Array,
+    students: {
+        type: Array,
+        default: []
+    },
     //"rahbariyatIzohi" Faqat menegmentdagilarga ko'rinadi.
     rahbariyatIzohi: {
         type: String,
@@ -21,6 +32,7 @@ const schema = mongoose.Schema({
         type: Boolean,
         default: false
     },
+    lastUpdate: Date,
     sana: Date
 })
 

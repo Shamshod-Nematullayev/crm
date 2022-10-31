@@ -40,6 +40,7 @@ router.post("/active",isAuth, async (req, res) => {
         if(user.job.level < 3){
             const ishchi = await Ishchi.findById(req.body.ishchi_id)
             let user_id =await generateUserId(user, req.body.filialCode)
+            if(!user_id) return;
             let password = Math.floor(Math.random() * 100000000)
             await ishchi.updateOne({$set: {
                 user_id,
@@ -275,8 +276,11 @@ async function generateUserId(user, filialCode){
     }else{
         unikalRaqam = count
     }
-    if(user.jinsi == "Erkak") jinsKodi = 'M'
-    else jinsKodi = "W"
+    if(jins == "Erkak") jinsKodi = 'M'
+    else if (jins == "Ayol"){
+        jinsKodi = "W"
+    }
+    else return false
     user_id = filialCode + jinsKodi + unikalRaqam
     return user_id
 }

@@ -1,8 +1,18 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema({
-    mavzu: String,
+    mavzu: {
+        type: String,
+        required: true
+    },
     comment: String,
-    summasi: Number,
+    summasi: {
+        type: Number,
+        required: true
+    },
+    kim: {
+        type: String,
+        required: true
+    },
     sana: Date
 })
 

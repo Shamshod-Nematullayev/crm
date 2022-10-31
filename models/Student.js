@@ -42,13 +42,15 @@ const schema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    kelishilganMaosh: Number,
-    talabQilinganMaosh: Number,
     comment: {
         type: String,
         max: 250
     },
-    kurslar: Array
+    kurslar: {
+        type: Array,
+        default: []
+    },
+    update: Object
 })
 
 const Student = mongoose.model('Student', schema);
