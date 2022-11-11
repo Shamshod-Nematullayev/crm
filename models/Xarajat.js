@@ -13,7 +13,11 @@ const schema = mongoose.Schema({
         type: String,
         required: true
     },
-    sana: Date
+    sana: Date,
+    isActiv: {
+        type: Boolean,
+        default: false
+    }
 })
 
 const Xarajat = mongoose.model('Xarajat', schema)

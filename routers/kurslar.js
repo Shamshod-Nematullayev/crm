@@ -52,14 +52,14 @@ router.post("/join",isAuth, async (req, res) => {
                                     return res.json({
                                         ok: true,
                                         message: "O'quvchi kursga olindi"
-                                    })
+                                    }).status(200)
                                 })
                         })
                 }else{
                     return res.json({
                         ok: false,
                         message: "O'quvchi topilmadi"
-                    })
+                    }).status(200)
                 }
             }else{
                 return res.json({

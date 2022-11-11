@@ -1,28 +1,23 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema({
-    kurs_id: String,
     sana: Date,
     user_id: {
         type: String,
-        required: true
-    },
-    nimaga: {
-        type: Object,
         required: true
     },
     summ: {
         type: Number,
         required: true
     },
-    kimOrqali: {
+    to: {
         type: String,
         required: true
     },
-    naqdmi: {
+    isConfirm: {
         type: Boolean,
-        required: true
+        default: false
     }
 })
 
-const Pay = mongoose.model('Pay', schema)
-module.exports = Pay
+const TransferMoney = mongoose.model('TransferMoney', schema)
+module.exports = TransferMoney

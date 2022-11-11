@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
    try {
+        console.log("keldi  ")
        const {user_id, password} = req.body;
        const user = await User.findOne({user_id})
     if(!user || user.password !==password){
@@ -13,7 +14,9 @@ router.post('/', async (req, res) => {
         })
     }else{
         req.session.auth = true
-        return res.json({
+        console.log(req.session)
+        console.log(req.sessionID)
+        return res.statusCode(200).json({
             ok: true,
             user
         })
